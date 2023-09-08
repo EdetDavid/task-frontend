@@ -24,7 +24,7 @@ class App extends Component {
  
   refreshList = () => {
     axios   //Axios to send and receive HTTP requests
-      .get("https://tasksheduller.onrender.com/api/tasks")
+      .get("https://backend-flyc.onrender.com/api/tasks/")
       .then(res => this.setState({ taskList: res.data }))
       .catch(err => console.log(err));
   };
@@ -115,14 +115,14 @@ class App extends Component {
     }
     // if new post to submit
     axios
-      .post("https://tasksheduller.onrender.com/api/tasks", item)
+      .post("https://backend-flyc.onrender.com/api/tasks/", item)
       .then(res => this.refreshList());
   };
 
   // Delete item
   handleDelete = item => {
     axios
-      .delete(`https://tasksheduller.onrender.com/api/tasks/${item.id}/`)
+      .delete(`https://backend-flyc.onrender.com/api/tasks/${item.id}/`)
       .then(res => this.refreshList());
   };
   // handleDelete = item => {//add this after modal creation
