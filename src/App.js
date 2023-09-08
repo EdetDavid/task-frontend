@@ -109,7 +109,7 @@ class App extends Component {
     if (item.id) {
       // if old post to edit and submit
       axios
-        .put(`https://tasksheduller.onrender.com/api/tasks${item.id}/`, item)
+        .put(`https://backend-flyc.onrender.com/api/tasks/${item.id}/`, item)
         .then(res => this.refreshList());
       return;
     }
