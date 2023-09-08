@@ -24,7 +24,7 @@ class App extends Component {
  
   refreshList = () => {
     axios   //Axios to send and receive HTTP requests
-      .get("http://localhost:8000/api/tasks/")
+      .get("https://tasksheduller.onrender.com/api/tasks")
       .then(res => this.setState({ taskList: res.data }))
       .catch(err => console.log(err));
   };
@@ -109,20 +109,20 @@ class App extends Component {
     if (item.id) {
       // if old post to edit and submit
       axios
-        .put(`http://localhost:8000/api/tasks/${item.id}/`, item)
+        .put(`https://tasksheduller.onrender.com/api/tasks${item.id}/`, item)
         .then(res => this.refreshList());
       return;
     }
     // if new post to submit
     axios
-      .post("http://localhost:8000/api/tasks/", item)
+      .post("https://tasksheduller.onrender.com/api/tasks", item)
       .then(res => this.refreshList());
   };
 
   // Delete item
   handleDelete = item => {
     axios
-      .delete(`http://localhost:8000/api/tasks/${item.id}/`)
+      .delete(`https://tasksheduller.onrender.com/api/tasks/${item.id}/`)
       .then(res => this.refreshList());
   };
   // handleDelete = item => {//add this after modal creation
